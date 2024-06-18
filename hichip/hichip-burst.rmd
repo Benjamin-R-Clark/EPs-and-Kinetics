@@ -81,7 +81,4 @@ ggplot(tad.cross.or.not) +
 tad.ml <- lm(k_on ~ Cross_TAD + log10(distance), tad.cross.or.not)
 tad.ml2 <- lm(k_syn.y/k_off.y ~ Cross_TAD + log10(distance), tad.cross.or.not)
 ```
-```{r}
-TADs <- read.delim("HI-C/GSE167579_Mouse.MEF.DI.tad_chr.bed", header = F)
 
-```
