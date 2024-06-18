@@ -1,0 +1,3 @@
+[submodule "tx_noise"]
+	path = tx_noise
+	url = https://github.com/Clarkvale/txnoise
