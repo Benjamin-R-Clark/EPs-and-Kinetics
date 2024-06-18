@@ -1,0 +1,530 @@
+---
+title: "R Notebook"
+output: html_document
+---
+
+Building an EP contact dataset
+```{r, results = "hide"}
+library(readxl)
+suppressPackageStartupMessages(library(dplyr))
+library(igraph)
+library(bedr)
+library(GenomicRanges)
+library(readr)
+vertices <- read_excel("data/elife-76500-supp3-v2.xlsx")
+vertices <- vertices[-which(vertices[,1] == vertices[,2]),]
+vertices <- unique(vertices)
+#swapping and scrambling for later
+scrambled_vertices <- vertices %>% mutate("ATAC summit (right anchor)" = sample(vertices$`ATAC summit (left anchor)`),
+"ATAC summit (left anchor)" = sample(vertices$`ATAC summit (right anchor)`))
+```
+
+```{r}
+graph <- graph_from_data_frame(d = vertices, directed = FALSE)
+count_components(graph)
+largest_component(graph)
+community <- multilevel.community(graph, resolution = 0.2)
+community$modularity
+```
+
+
+```{r}
+hub.df <- data.frame(vertices = c(),hub_id = c())
+components <- decompose.graph(graph)
+for(i in 1:length(components)){
+    hub_id <- graph_id(components[[i]])
+    vectors <- strsplit(igraph::as_ids(V(components[[i]])), "[:-]+")
+    hub_id <- rep(graph_id(components[[i]]), length(vectors))
+
+   tibble <- as.data.frame(do.call(rbind, vectors)) %>% bind_cols(hub_id = hub_id)
+   #tibble <- data.frame(vertices = vectors, hub_id = hub_id)
+   hub.df <- hub.df %>% dplyr::bind_rows(tibble)
+}
+
+hub.df <- hub.df %>% rename("V1" = "chr" , "V2" = "start" , "V3" = "end") %>% mutate_at(c("start","end"), as.numeric) %>% mutate_at(c("chr"), as.character)
+
+#for later
+names(components) <- sapply(components, graph_id)
+```
+
+
+Getting promoter coords
+
+```{r}
+#suppressPackageStartupMessages(library(TxDb.Mmusculus.UCSC.mm10.knownGene))
+#suppressPackageStartupMessages(library(valr))
+#promoters <- suppressWarnings(promoters(TxDb.Mmusculus.UCSC.mm10.knownGene, upstream = 1500, downstream = 500))
+#the fact that Granges and bedr cant communicate is bizarre
+#promoters <- as.data.frame(promoters) %>% mutate_at(c("seqnames"), as.character) %>% rename("seqnames" = "chr") %>%
+#  filter(chr %in% unique(hub.df$chr)) %>% na.omit()
+
+#promoters.sorted <- bedr.sort.region(promoters)
+hub.df.sorted <- suppressMessages(bedr::bedr.sort.region(hub.df))
+
+#bedr is bad
+#write_delim(promoters.sorted, file = "data/mm10_promoters_2kb_filtered.bed", delim = "\t", col_names = F, quote = "none")
+write_delim(hub.df.sorted, file = "data/HiChip_hubs.bed", delim = "\t", col_names = F, quote = "none")
+
+
+command <- 'bedtools intersect -a data/HiChip_hubs.bed -b data/mm10_TSS_1.5kb_regions.gtf -wa -wb  -loj > data/HiChip_hubs_with_promoters.bed'
+
+system(command)
+
+hichip_hubs_promoters <- read.delim("data/HiChip_hubs_with_promoters.bed",sep = "\t", header = F)
+
+names <- sapply(strsplit(hichip_hubs_promoters$V13, split = ";"),
+                FUN = function(x){
+                  return(gsub("gene_id ", "", x[1]))
+                })
+
+
+#here I'm removing transcript annotations and just keeping one unique gene annotation per hub
+hichip_hubs_promoters <- hichip_hubs_promoters %>% mutate(promoter_id = names) %>%
+  rename(V1 = "chr", V2 = "start", V3 = "end", V4 = "hub_id", V5 = "pChr", V8 = "pstart", V9 = "pend") %>%
+  dplyr::select(-c("V6","V7","V10","V11", "V12","V13")) %>%
+  #ens annotations with identical coords within a hub group should be removed
+  group_by(chr, start, end, promoter_id) %>% dplyr::slice(1)
+
+#rewriting over file
+write_delim(hichip_hubs_promoters, "data/HiChip_hubs_with_promoters.bed", delim = "\t", col_names = F, quote = "none")
+
+```
+
+Intersecting with CTCF Peaks
+```{r}
+command2 <- 'bedtools intersect -a data/HiChip_hubs_with_promoters.bed -b data/chip/peaks/GSM5819295_B6xCAST_CTCF_cycling_B1_merged_peaks_sorted.narrowPeak -wa -wb -loj > data/HiChip_hubs_with_promoters_CTCF.bed'
+
+system(command2)
+
+hichip_hubs_promoters_CTCF <- read.delim('data/HiChip_hubs_with_promoters_CTCF.bed', sep = "\t", header = F)
+
+hichip_hubs_promoters_CTCF  <-  hichip_hubs_promoters_CTCF  %>% rename(V1 = "chr", V2 = "start", V3 = "end", V4 = "hub_id", V5 = "pChr", V6 = "pstart", V7 = "pend", V17 ="CTCF_qVal", V8 = "gene_id", V12 = "CTCF_id") %>% dplyr::select(-c("V9","V10","V11","V13","V14", "V15","V16","V18"))  %>% mutate(CTCF_qVal = as.numeric(CTCF_qVal)) %>% filter(is.na(CTCF_qVal) | CTCF_qVal > 3)
+
+```
+Hooking up kinetics and expression data
+```{r}
+kinetics <- suppressMessages(read_excel("data/journal.pcbi.1008772.s006.xlsx", sheet = "C57"))
+colnames(kinetics) <- kinetics[1,]
+kinetics <- kinetics[-1,]
+
+hichip_hubs_promoters_CTCF_kinetics <- hichip_hubs_promoters_CTCF %>% dplyr::left_join(y = kinetics , by = join_by(gene_id == "gene_id"))
+
+hichip_hubs_promoters_CTCF_kinetics$k_on <- as.numeric(hichip_hubs_promoters_CTCF_kinetics$k_on)
+hichip_hubs_promoters_CTCF_kinetics$k_off <- as.numeric(hichip_hubs_promoters_CTCF_kinetics$k_off)
+hichip_hubs_promoters_CTCF_kinetics$k_syn <- as.numeric(hichip_hubs_promoters_CTCF_kinetics$k_syn)
+
+hichip_hubs_promoters_CTCF_kinetics["bs"] <- hichip_hubs_promoters_CTCF_kinetics$k_syn / hichip_hubs_promoters_CTCF_kinetics$k_off
+#hichip_hubs_promoters_CTCF_kinetics  <- hichip_hubs_promoters_CTCF_kinetics
+```
+Annotating networks with CTCF and Gene promoters. Most of this code handles overlapping annotations by adding a duplicate vertex and copying the edges.
+```{r}
+library(tidyr)
+
+for(hub in components){
+
+    tibble <- hichip_hubs_promoters_CTCF_kinetics %>% filter(hub_id == graph_id(hub)) %>%
+    mutate(vertex = paste0(chr,":", start, "-",end)) %>% drop_na("chr")
+  vertices <- V(components[[graph_id(hub)]])
+
+  if(nrow(tibble) < length(vertices) | any(!(as_ids(vertices) %in% tibble$vertex))){
+    extra <- which(!(as_ids(vertices) %in% tibble$vertex))
+    components[[graph_id(hub)]] <- delete.vertices(hub, extra)
+    vertices <- V(components[[graph_id(hub)]])
+  }
+
+  #what if the promoters overlap and we get an extra vertex?
+  if(nrow(tibble) > length(vertices) | any(duplicated(tibble$vertex))){
+
+    #copy edges
+    #dup_vert <- tibble$vertex[which(duplicated(tibble$vertex))]
+    new_edges_list <- list()
+    for(pattern in which(duplicated(tibble$vertex))){
+
+        #create new vertices
+        new_vert <- paste0(tibble$vertex[pattern], "_1")
+
+        #add to metatable and graph list
+        hub <-  add.vertices(hub,nv = length(new_vert), name = new_vert)
+
+        old_edges_ix <-  grep(tibble$vertex[pattern],as_ids(E(hub)))
+
+        old_edges <- as_ids(E(hub))[old_edges_ix]
+
+        other_vert <- gsub(gsub(as_ids(E(hub))[old_edges_ix], pattern = tibble$vertex[pattern],
+                                replacement =  ""), pattern = "\\|", replacement = "")
+        #make new edges
+
+        for(i in other_vert){
+          #this arises from self loops which we can safely remove
+          if(i != ""){
+            new_edges_list <- c(new_edges_list, list(new_vert, i))
+          }
+        }
+
+    }
+    #update graph list
+    components[[graph_id(hub)]] <- hub
+    components[[graph_id(hub)]] <- add.edges(components[[graph_id(hub)]], unlist(new_edges_list))
+    tibble[which(duplicated(tibble$vertex)), 21] <- new_vert
+    #print("eep")
+  }
+
+  #if(nrow(tibble) >= 2){
+
+      vertices <- V(components[[graph_id(hub)]])
+      tibble_ordered <- tibble[match(as_ids(vertices), tibble$vertex),]
+      genes <- tibble_ordered$gene_id
+      ctcf <- tibble_ordered$CTCF_qVal
+      color <- rep("yellow", length(vertices))
+      color[which(!is.na(ctcf))] <- "blue"
+      color[which(genes != ".")] <- "red"
+
+
+      V(components[[graph_id(hub)]])$promoter <- genes
+      V(components[[graph_id(hub)]])$ctcf <- ctcf
+      V(components[[graph_id(hub)]])$color <- color
+
+
+
+
+}
+
+
+```
+Getting descriptive stats of the networks
+```{r}
+library(ggplot2)
+pfiltered_components <- list()
+for(hub in components){
+  if(!is.null(V(hub))){
+    if(any(V(hub)$promoter != ".")){
+      if(length(V(hub)) >= 2){
+       #print(V(hub)$color)
+        pfiltered_components[[graph_id(hub)]] <- hub
+      }
+    }
+  }
+}
+n.edges <- sapply(pfiltered_components, FUN = function(x){return(length(E(x)))})
+n.ver <- sapply(pfiltered_components, FUN = function(x){return(length(V(x)))})
+
+
+```
+```{r}
+ggplot() + geom_histogram(aes(n.edges)) + theme_minimal() + xlab("Number of Edges")
+```
+```{r}
+mul <- multilevel.community(pfiltered_components[[names(which.max(n.edges))]])
+plot(pfiltered_components[[names(which.max(n.edges))]], vertex.label = NA, mark.groups = mul, vertex.size = 3)
+
+#mul2 <- multilevel.community(pfiltered_components[["a2be3e8d-c105-4d21-ac00-ee347d617204"]])
+#plot(pfiltered_components[["a2be3e8d-c105-4d21-ac00-ee347d617204"]], vertex.label = NA, #mark.groups = mul2, vertex.size = 3)
+
+```
+```{r}
+#centr_degree(pfiltered_components[["a2be3e8d-c105-4d21-ac00-ee347d617204"]], loops = F, normalized = T)
+```
+
+```{r}
+degrees <- lapply(pfiltered_components, centr_degree, normalized = T)
+cents <- lapply(degrees, FUN = function(x){return(x$centralization)})
+ggplot() + geom_histogram(aes(unlist(cents))) + theme_minimal() + xlab("Degree Centrality per Component")
+
+```
+```{r}
+plot(pfiltered_components[[names(which.max(cents))]], vertex.size = 9)
+```
+```{r}
+library(tidymodels)
+hichip_hubs_promoters_CTCF_kinetics <- hichip_hubs_promoters_CTCF_kinetics %>% mutate(vertex = paste0(chr,":", start, "-",end))
+all_degrees <- lapply(pfiltered_components, FUN = igraph::degree, loops = F)
+#all_degrees <- lapply(components, FUN = degree, loops = F)
+
+all_degrees_l <- list()
+for(x in all_degrees){
+  all_degrees_l <- c(all_degrees_l, x)
+}
+
+all_degree_df <- tibble::enframe(all_degrees_l) %>% rename("name" = "vertex", "value" = "degree") %>% mutate(degree = as.integer(degree))
+
+hichip_hubs_promoters_CTCF_kinetics_deg <- hichip_hubs_promoters_CTCF_kinetics %>%
+  inner_join(all_degree_df, by = join_by("vertex"))
+
+enh_degree <- hichip_hubs_promoters_CTCF_kinetics_deg %>% dplyr::filter(gene_id == ".") %>% dplyr::select(vertex, hub_id, CTCF_qVal, degree)
+prom_degree <-  hichip_hubs_promoters_CTCF_kinetics_deg %>% dplyr::filter(gene_id != ".") %>% dplyr::select(vertex, hub_id, gene_id,CTCF_qVal, k_on, bs, degree)
+
+hub_stats <- hichip_hubs_promoters_CTCF_kinetics_deg %>%
+  group_by(hub_id) %>%
+  summarise(max_kon = max(k_on, na.rm = T),
+            max_bs = max(bs, na.rm = T),
+            max_degree = max(degree, na.rm = T),
+            ctcf = any(!is.na(CTCF_qVal)),
+            max_ctcf = max(CTCF_qVal, na.rm = T),
+            mean_kon = mean(k_on, na.rm = T),
+            mean_bs = mean(bs, na.rm = T),
+            hub_size = n()) %>%
+  #mutate_if(is.numeric, list(~na_if(., -Inf))) %>%
+  na.omit() %>%
+  mutate(fmax_degree = cut(max_degree, breaks = c(0,6,12,18,24), include.lowest = T))
+
+lm_kon <- lm(max_kon ~ max_degree + ctcf + hub_size, hub_stats)
+lm_bs <- lm(max_bs ~ max_degree + ctcf + hub_size, hub_stats)
+summary(lm_kon)
+#ggplot(enh_degree) + geom_histogram(aes(x = degree), bins = 15) + theme_minimal() + xlab("enhancer degrees")
+#ggplot(prom_degree) + geom_histogram(aes(x = degree), bins = 15) + theme_minimal() + xlab("promoter degrees")
+```
+
+
+
+```{r}
+library(ggpubr)
+
+
+ggplot(hub_stats, aes(x = factor(fmax_degree), y = mean_kon )) +
+  geom_boxplot(fill="bisque",color="black",alpha=0.3, outlier.shape = NA) +
+  theme_minimal(base_size = 12) +
+  scale_y_log10() +
+  geom_dotplot(binaxis = "y", binwidth = 0.015, color = "blue", alpha = 0.4, dotsize = 1.7) +
+  stat_compare_means(comparisons = list(c(1,2), c(1,3), c(2,3))) +
+  xlab("Binned Maximum Degree of Hub") +
+  ylab("Mean Burst Frequency of Hub")
+
+
+ggplot(hub_stats, aes(x = factor(ctcf), y = mean_kon )) +
+  geom_boxplot(fill="bisque",color="black",alpha=0.3, outlier.shape = NA) +
+  theme_minimal(base_size = 12) +
+  scale_y_log10() +
+  geom_dotplot(binaxis = "y", binwidth = 0.015, color = "blue", alpha = 0.4, dotsize = 1.7) +
+  stat_compare_means(comparisons = list(c(1,2))) +
+  #xlab("Binned Maximum Degree of Hub") +
+  ylab("Mean Burst Frequency of Hub")
+
+
+
+ggplot(hub_stats, aes(x = factor(ctcf), y = mean_bs )) +
+  geom_boxplot(fill="bisque",color="black",alpha=0.3, outlier.shape = NA) +
+  theme_minimal(base_size = 12) +
+  scale_y_log10() +
+  geom_dotplot(binaxis = "y", binwidth = 0.015, color = "blue", alpha = 0.4, dotsize = 1.7) +
+  stat_compare_means(comparisons = list(c(1,2))) +
+  #xlab("Binned Maximum Degree of Hub") +
+  ylab("Mean Burst Size of Hub")
+
+
+```
+
+```{r}
+#promoter stats
+
+prom_stats <- prom_degree %>%
+  group_by(hub_id) %>% dplyr::filter(degree  == max(degree)) %>%
+  mutate(fmax_degree = cut(degree, breaks = c(0,4,8,24), include.lowest = T)) %>%
+  mutate(any_degree = cut(degree, breaks = c(0,1,24), include.lowest = T))
+
+
+ggplot(prom_stats, aes(x = factor(fmax_degree), y = k_on )) +
+  geom_boxplot(fill="bisque",color="black",alpha=0.3, outlier.shape = NA) +
+  theme_minimal(base_size = 16) +
+  scale_y_log10() +
+  geom_dotplot(binaxis = "y", binwidth = 0.015, color = "blue", alpha = 0.4, dotsize = 1.7) +
+  stat_compare_means(comparisons = list(c(1,2), c(1,3), c(2,3))) +
+  xlab("Binned Degree of Promoter") +
+  ylab("Burst Frequency ")
+
+ggplot(prom_stats, aes(x = factor(fmax_degree), y = bs )) +
+  geom_boxplot(fill="bisque",color="black",alpha=0.3, outlier.shape = NA) +
+  theme_minimal(base_size = 16) +
+  scale_y_log10() +
+  geom_dotplot(binaxis = "y", binwidth = 0.015, color = "blue", alpha = 0.4, dotsize = 1.7) +
+  stat_compare_means(comparisons = list(c(1,2), c(1,3), c(2,3))) +
+  xlab("Binned Degree of Promoter") +
+  ylab("Burst Size")
+```
+```{r}
+#getting centrality measures
+get_centrality <- function(graph, filter){
+  if(vcount(graph) >= filter & vcount(graph) < 20) {
+    return(scale(closeness(graph)))
+  } else {
+    return(NA)
+  }
+
+}
+is_hierar <- function(matrix){
+  return(any(matrix >= 1.5))}
+centrality_per_graph <- sapply(pfiltered_components, FUN = get_centrality, filter = 4)
+centrality_per_graph_l <- sapply(centrality_per_graph, FUN = is_hierar)
+
+hier_components <- pfiltered_components[which(unlist(centrality_per_graph_l))]
+
+find_hub <- function(graph, centralities){
+  if(!is.null(graph)){
+    out <- V(graph)[which.max(centralities[[graph_id(graph)]])]$promoter
+    if(rlang::is_empty(out)){
+    return(NA)
+    } else {
+      return(out)
+    }
+  } else {
+    return(NA)
+  }
+}
+ctcf_of_hub <- function(graph, centralities){
+  if(!is.null(graph)){
+  out <- V(graph)[which.max(centralities[[graph_id(graph)]])]$ctcf
+   if(rlang::is_empty(out)){
+    return(NA)
+    } else {
+      return(out)
+    }
+  } else {
+  return(NA)
+  }
+}
+hub_type <- sapply(hier_components,  FUN = find_hub, centralities = centrality_per_graph)
+#hub_type <- na_if(unlist(hub_type), character(0))
+
+ctcf_type  <- sapply(hier_components,  FUN = ctcf_of_hub, centralities = centrality_per_graph)
+
+hier_table <- hichip_hubs_promoters_CTCF_kinetics %>% left_join(tibble::enframe(hub_type) , by = join_by("hub_id" == "name")) %>% dplyr::rename("hub_vertex_type" = "value")
+
+hier_table <- hier_table %>% left_join(tibble::enframe(ctcf_type), by = join_by("hub_id" == "name")) %>% dplyr::rename("ctcf" = "value")
+
+hier_table_summary <-  hier_table %>%
+  dplyr::group_by(hub_id) %>%
+  dplyr::summarise(mean_kon = mean(k_on, na.rm = T), max_kon = max(k_on, na.rm = T), mean_bs = mean(bs, na.rm = T), max_bs = max(bs, na.rm = T), hub_type = unique(hub_vertex_type), hub_size = n(), hub_ctcf = unique(ctcf)) %>%
+  rowwise() %>%
+  mutate(hierc = as.logical(list(!is.na(hub_type))),
+         hub_type = case_match(hub_type, "." ~ "Enhancer", NA ~ NA, .default = "Promoter"),) %>%
+  filter(hub_size <= 20) %>%
+  mutate(ctcf = as.logical(list(!is.na(hub_type)))) %>%
+  mutate(ctcf.hubtype = paste(sep = ".", ctcf, hub_type))
+
+#hier_table_summary$hub_type <- hier_table_summary$hub_type
+
+
+ggplot(hier_table_summary, aes(x = factor(hub_type), y = max_bs)) +
+  geom_boxplot(color="black",alpha=0.3, outlier.shape = NA, linewidth = 1.3, fatten = T) +
+  theme_minimal(base_size = 16) +
+  scale_y_log10() +
+  geom_dotplot(binaxis = "y", binwidth = 0.015, color = "blue", alpha = 0.4, dotsize = 1.7) +
+  stat_compare_means(comparisons = list(c(1,2), c(1,3), c(2,3)), size = 4) +
+  #xlab("Binned Maximum Degree of Hub") +
+  ylab("Max Burst Size of Hub")
+
+ggplot(hier_table_summary, aes(x = factor(hub_type), y = max_kon)) +
+  geom_boxplot(fill="bisque",color="black",alpha=0.3, outlier.shape = NA) +
+  theme_minimal(base_size = 16) +
+  scale_y_log10() +
+  geom_dotplot(binaxis = "y", binwidth = 0.015, color = "blue", alpha = 0.4, dotsize = 1.7) +
+  stat_compare_means(comparisons = list(c(1,2), c(1,3), c(2,3))) +
+  #xlab("Binned Maximum Degree of Hub") +
+  ylab("Max Burst Frequency of Hub")
+
+
+ggplot(hier_table_summary, aes(x = factor(hierc), y = max_bs)) +
+  geom_boxplot(fill="bisque",color="black",alpha=0.3, outlier.shape = NA) +
+  theme_minimal(base_size = 16) +
+  scale_y_log10() +
+  geom_dotplot(binaxis = "y", binwidth = 0.015, color = "blue", alpha = 0.4, dotsize = 1.7) +
+  stat_compare_means() +
+  #xlab("Binned Maximum Degree of Hub") +
+  ylab("Max Burst Size of Hub")
+
+
+ggplot(hier_table_summary, aes(x = factor(ctcf), y = max_bs)) +
+  geom_boxplot(fill="bisque",color="black",alpha=0.3, outlier.shape = NA) +
+  theme_minimal(base_size = 16) +
+  scale_y_log10() +
+  geom_dotplot(binaxis = "y", binwidth = 0.015, color = "blue", alpha = 0.4, dotsize = 1.7) +
+  stat_compare_means() +
+  #xlab("Binned Maximum Degree of Hub") +
+  ylab("Max Burst Size of Hub")
+
+ggplot(hier_table_summary, aes(x = factor(ctcf), y = max_kon)) +
+  geom_boxplot(fill="bisque",color="black",alpha=0.3, outlier.shape = NA) +
+  theme_minimal(base_size = 16) +
+  scale_y_log10() +
+  geom_dotplot(binaxis = "y", binwidth = 0.015, color = "blue", alpha = 0.4, dotsize = 1.7) +
+  stat_compare_means() +
+  #xlab("Binned Maximum Degree of Hub") +
+  ylab("Max Burst Frequency of Hub")
+
+ggplot(hier_table_summary, aes(x = factor(ctcf.hubtype), y = max_kon)) +
+  geom_boxplot(fill="bisque",color="black",alpha=0.3, outlier.shape = NA) +
+  theme_minimal(base_size = 16) +
+  scale_y_log10() +
+  geom_dotplot(binaxis = "y", binwidth = 0.015, color = "blue", alpha = 0.4, dotsize = 1.7) +
+  stat_compare_means() +
+  #xlab("Binned Maximum Degree of Hub") +
+  ylab("Max Burst Frequency of Hub")
+
+ggplot(hier_table_summary, aes(x = factor(ctcf.hubtype), y = max_bs)) +
+  geom_boxplot(fill="bisque",color="black",alpha=0.3, outlier.shape = NA) +
+  theme_minimal(base_size = 16) +
+  scale_y_log10() +
+  geom_dotplot(binaxis = "y", binwidth = 0.015, color = "blue", alpha = 0.4, dotsize = 1.7) +
+  stat_compare_means() +
+  #xlab("Binned Maximum Degree of Hub") +
+  ylab("Max Burst Size of Hub")
+
+#enh_table_hier <- hier_table_summary %>% filter(h)
+
+  #mutate(hierc = as.logical(hierc), hub_type = as.character(hub_type))
+```
+
+```{r}
+get_nearerst_enh <- function(components, hub_id, gene_id){
+  hub <- components[[hub_id]]
+  if(is.null(hub)){
+    #print(paste0("bad id: ", hub_id))
+    simpleError(message = paste0("bad id: ", hub_id))
+  }
+  else{
+    enh_ix <- which(V(hub)$promoter == ".")
+    prom_ix <- which(V(hub)$promoter == gene_id)
+    most_connect_enh <- names(igraph::degree(hub, v = V(hub)[enh_ix], loops = F, normalized = T)[which.max(igraph::degree(hub, v = V(hub)[enh_ix], loops = F, normalized = T))])
+    dis <- igraph::shortest_paths(graph = hub, from = V(hub)[prom_ix], to = most_connect_enh, output = c("epath"))$epath
+
+    if(!is.null(dis) & length(dis) !=  0){
+      return(length(dis[[1]]))
+    } else{
+      return(NA)
+    }
+
+  }
+}
+
+hichip_hubs_promoters_CTCF_kinetics_deg_dis <- hichip_hubs_promoters_CTCF_kinetics_deg %>%
+  dplyr::filter(gene_id != ".") %>% rowwise() %>%
+  mutate(distance_to_max_enh = list(get_nearerst_enh(components, hub_id, gene_id))) %>%
+  mutate(distance_to_max_enh = unlist(distance_to_max_enh))
+
+
+dist_kon <- lm(k_on ~ distance_to_max_enh, data = hichip_hubs_promoters_CTCF_kinetics_deg_dis)
+summary(dist_kon)
+
+
+```
+What Does CTCF contribute to promoters?
+```{r}
+prom_only_kinetics <- hichip_hubs_promoters_CTCF_kinetics %>%  mutate(ctcf = case_match(CTCF_id, "." ~ FALSE, .default = TRUE))
+
+ggplot(prom_only_kinetics, aes(x = factor(ctcf), y = bs)) +
+  geom_boxplot(fill="bisque",color="black",alpha=0.3, outlier.shape = NA) +
+  theme_minimal(base_size = 16) +
+  scale_y_log10() +
+  geom_dotplot(binaxis = "y", binwidth = 0.015, color = "blue", alpha = 0.4, dotsize = 1.7) +
+  stat_compare_means() +
+  #xlab("Binned Maximum Degree of Hub") +
+  ylab("Burst Size")
+
+ggplot(prom_only_kinetics, aes(x = factor(ctcf), y = k_on)) +
+  geom_boxplot(fill="bisque",color="black",alpha=0.3, outlier.shape = NA) +
+  theme_minimal(base_size = 16) +
+  scale_y_log10() +
+  geom_dotplot(binaxis = "y", binwidth = 0.015, color = "blue", alpha = 0.4, dotsize = 1.7) +
+  stat_compare_means() +
+  #xlab("Binned Maximum Degree of Hub") +
+  ylab("Burst Frequency")
+```

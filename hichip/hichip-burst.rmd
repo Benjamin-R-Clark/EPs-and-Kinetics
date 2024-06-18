@@ -1,0 +1,87 @@
+---
+title: "R Notebook"
+output: html_notebook
+---
+
+
+Get single enhancer-promoter linkages that cross TAD boundaries.
+```{bash}
+bedtools intersect -wa -f 0.95 -v -a single_promoter_enhancer_kinetics.bed -b HI-C/GSE167579_Mouse.MEF.DI.tad_chr.bed > enh_prom_out_MEF_TADs.bed
+```
+
+![Example of a cross TAD enhancer-promoter contact](./cross_tad_ex.png)
+
+
+Pull-in both full interactions and non-intersecting data sets
+
+```{r}
+library(dplyr)
+hic.cross.linkages <- read.delim("enh_prom_out_MEF_TADs.bed", sep = "\t", header = F)
+full.single.linkages <- read.delim("single_promoter_enhancer_kinetics.bed", sep ="\t", header = F)
+
+hic.cross.linkages <- hic.cross.linkages %>% dplyr::rename(Chromosome = V1, Start = V2, End = V3, ID = V4, k_on = V5, k_off = V6, k_syn = V7, burst_size = V8)
+hic.cross.linkages <- hic.cross.linkages %>% dplyr::mutate(Cross_TAD = TRUE)
+full.single.linkages <-  full.single.linkages %>% dplyr::rename(Chromosome = V1, Start = V2, End = V3, ID = V4, k_on = V5, k_off = V6, k_syn = V7, burst_size = V8)
+
+```
+```{r}
+tad.cross.or.not <- hic.cross.linkages %>% full_join(full.single.linkages, by = join_by(ID == ID)) %>%
+  mutate(Cross_TAD = case_when(is.na(Cross_TAD) ~ FALSE, Cross_TAD ~ TRUE),
+         k_on.x = case_when(is.na(k_on.y) ~ k_on.x, TRUE ~ k_on.y),
+         burst_size.x = case_when(is.na(burst_size.y) ~ burst_size.x, TRUE ~ burst_size.y)) %>%
+  dplyr::rename(k_on = k_on.x, burst_size = burst_size.x)
+
+
+```
+```{r}
+t.test(x = log10(tad.cross.or.not$k_on[which(tad.cross.or.not$Cross_TAD == T)]), y = log10(tad.cross.or.not$k_on[which(tad.cross.or.not$Cross_TAD == F)]))
+t.test(x = log10(tad.cross.or.not$burst_size[which(tad.cross.or.not$Cross_TAD == T)]), y = log10(tad.cross.or.not$burst_size[which(tad.cross.or.not$Cross_TAD == F)]))
+```
+```{r}
+library(ggplot2)
+library(ggpubr)
+ggplot(tad.cross.or.not, aes(x=factor(Cross_TAD), y = k_on)) +
+  geom_boxplot(width=0.5, notch = F) +
+  geom_dotplot(binaxis='y', stackdir = "center", dotsize = 0.4, alpha = 0.4, stackratio = 1.2, fill = "blue") +
+  theme_minimal(base_size = 18) +
+  ylab( "Burst Frequency") +
+  scale_y_log10()+
+  xlab("") +
+  scale_x_discrete(labels = NULL) +
+  scale_fill_discrete(name = "Cross TAD", type = c("#F0E442", "#56B4E9")) +
+  stat_compare_means(method = "t.test", label.x.npc = 0.4, size = 4)
+
+ggplot(tad.cross.or.not, aes(x=factor(Cross_TAD), y = burst_size)) +
+  geom_boxplot(width=0.5, notch = T) +
+  geom_dotplot(binaxis='y', stackdir = "center", dotsize = 0.4, alpha = 0.4, stackratio = 1.2, fill = "blue") +
+  theme_minimal(base_size = 18) +
+  ylab( "Burst Size") +
+  scale_y_log10()+
+  xlab("") +
+  scale_x_discrete(labels = c("Within TAD", "Cross TAD")) +
+  stat_compare_means(method = "t.test")
+
+```
+```{r}
+cbp2 <- c("#000000", "#E69F00", "#56B4E9", "#009E73",
+          "#F0E442", "#0072B2", "#D55E00", "#CC79A7")
+tad.cross.or.not <- tad.cross.or.not %>% mutate(distance = abs(Start.y - End.y))
+ggplot(tad.cross.or.not) +
+        geom_point(aes(x = distance, y = k_on, colour = Cross_TAD),
+                   size = 3.5) +
+        theme_minimal(base_size = 30) +
+        theme(axis.text.x=element_text(size=rel(0.95)), legend.position = "top") +
+        xlab("Distance log(bp)") +
+        ylab("Burst Frequency") +
+        scale_color_manual(name = "Cross TAD Boundary", values = cbp2) +
+        scale_y_log10() +
+        scale_x_log10()
+
+
+tad.ml <- lm(k_on ~ Cross_TAD + log10(distance), tad.cross.or.not)
+tad.ml2 <- lm(k_syn.y/k_off.y ~ Cross_TAD + log10(distance), tad.cross.or.not)
+```
+```{r}
+TADs <- read.delim("HI-C/GSE167579_Mouse.MEF.DI.tad_chr.bed", header = F)
+
+```
