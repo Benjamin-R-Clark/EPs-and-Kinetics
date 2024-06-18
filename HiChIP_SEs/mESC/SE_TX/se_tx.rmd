@@ -1,0 +1,94 @@
+---
+title: "Super Enhancers and their Kinetic Output"
+output: html_document
+---
+
+```{r}
+library(dplyr)
+tx <- read.csv("data/mESC_tx.csv")
+annos <- read.delim("data/MGIBatchReport_20240412_123745.txt")
+
+tx_anno <- tx %>% left_join(annos, by=join_by("X" == "Input"))
+```
+position the caret at any line or the code chunk, then click "+".
+
+The code chunk appears:
+```{r}
+se_genes2 <- read.delim("data/enhancer_regions_rose_SuperStitched_REGION_TO_GENE.txt")
+#tx$SE2 <- FALSE
+#tx$SE2[(which(tx$X %in% se_genes2$GENE_NAME))] <- TRUE
+
+write(unlist(sapply(se_genes2$OVERLAP_GENES, strsplit, ",", USE.NAMES = F)), file = "overlapping_genes.txt")
+write(unlist(sapply(se_genes2$CLOSEST_GENE, strsplit, ",", USE.NAMES = F)), file = "closest_genes.txt")
+write(unlist(sapply(se_genes2$PROXIMAL_GENES, strsplit, ",", USE.NAMES = F)), file = "proximal_genes.txt")
+
+overlap.anno <- read.delim("overlappinf_annos.txt")
+closest.anno <- read.delim("closest_genes_anno.txt")
+proximal.anno <- read.delim("proximal_annos.txt")
+
+
+tx_anno <- tx_anno %>% rowwise() %>%
+  mutate(overlap = any((case_when(overlap.anno$Ensembl.ID %in% "Ensembl.ID" ~ TRUE, .default =F )))) %>%
+  mutate(closest = any((case_when(closest.anno$Ensembl.ID %in% "Ensembl.ID" ~ TRUE, .default =F )))) %>%
+  mutate(proximal = any((case_when(proximal.anno$Ensembl.ID %in% "Ensembl.ID" ~ TRUE, .default = F ))))
+
+
+df_factor <- tx_anno %>% mutate(relation = case_when(
+                                                         overlap & !(proximal) ~ "overlapping" ,
+                                                         #closest & !(overlap) ~ "closest",
+                                                         #closest & !(SE_linked) & !overlap ~ "closest",
+                                                         proximal & !(overlap) ~ "proximal",
+                                                         .default = "none"))
+#se_genes <- read.delim("data/se_1e5.txt")
+#tx$SE1 <- FALSE
+#tx$SE1[(which(tx$X %in% se_genes$GENE_NAME))] <- TRUE
+```
+```{bash}
+awk 'OFS="\t"  {if(NR > 1 && $7 > 191){print $5}}' /home/ben/bio/nextflow/rose/enhancer_regions_rose_12.5KB_STITCHED_REGION_MAP.txt > stitch_size.txt
+
+```
+
+
+```{r}
+library(ggplot2)
+library(ggpubr)
+
+bf <- ggplot(tx, mapping = aes(x = SE1, y = Kon, fill = SE1)) +
+  geom_boxplot(linewidth = 1.3, fatten = T) +
+  scale_y_log10() + theme_linedraw(base_size = 28) +
+  stat_compare_means(method = "t.test", label.x.npc = 0.28, size = 9) +
+  xlab(NULL) +
+  ylab("Burst Frequency") +
+  theme(legend.position = "none") +
+  scale_fill_discrete(name = "Proximal SE", type = c("#F0E442", "#56B4E9"))
+
+
+
+bs <- ggplot(tx, mapping = aes(x = SE1, y = Ksyn/Koff, fill = SE1)) +
+  geom_boxplot(linewidth = 1.3, fatten = T) +
+  scale_y_log10() + theme_linedraw(base_size = 28) +
+  stat_compare_means(method = "t.test", label.x.npc = 0.28, size = 9) +
+  xlab(NULL) +
+  ylab("Burst Size") +
+  theme(legend.position = "none") +
+  scale_fill_discrete(name = "Proximal SE", type = c("#F0E442", "#56B4E9"))
+
+
+f <- gridExtra::arrangeGrob(bf,bs,  ncol = 2, nrow = 1 ,
+                            bottom=grid::textGrob(label= "Proximal Super-Enhancer",
+                                                  gp = grid::gpar(fontsize=28)))
+
+grid::grid.newpage()
+grid::grid.draw(f)
+
+```
+
+```{r}
+ggplot(tx, mapping = aes(x = SE1, y = 1/Kon, fill = SE1)) +
+  geom_boxplot(linewidth = 1.3, fatten = T) +
+  scale_y_log10() + theme_minimal(base_size = 18) +
+  stat_compare_means(method = "t.test", label.x.npc = 0.28, size = 5) +
+  xlab("Proximal Super-Enhancer") +
+  ylab("Waiting time") +
+  scale_fill_discrete(name = "Proximal SE", type = c("#F0E442", "#56B4E9"))
+```

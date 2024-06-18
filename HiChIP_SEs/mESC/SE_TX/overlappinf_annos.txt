@@ -1,0 +1,345 @@
+Input	Input Type	MGI Gene/Marker ID	Symbol	Name	Feature Type	Ensembl ID
+NM_028713	RefSeq	MGI:1921263	Rftn2	raftlin family member 2	protein coding gene	ENSMUSG00000025978
+NM_025705	RefSeq	MGI:1913936	Dcbld1	discoidin, CUB  and LCCL domain containing 1	protein coding gene	ENSMUSG00000019891
+NM_026135	RefSeq	MGI:1914659	Kctd16	potassium channel tetramerisation domain containing 16	protein coding gene	ENSMUSG00000051401
+NM_026135	RefSeq	MGI:1914659	Kctd16	potassium channel tetramerisation domain containing 16	protein coding gene	ENSMUSG00000118202
+NM_001271726	RefSeq	MGI:1933163	Trim2	tripartite motif-containing 2	protein coding gene	ENSMUSG00000027993
+NM_030706	RefSeq	MGI:1933163	Trim2	tripartite motif-containing 2	protein coding gene	ENSMUSG00000027993
+NM_001271727	RefSeq	MGI:1933163	Trim2	tripartite motif-containing 2	protein coding gene	ENSMUSG00000027993
+NM_001271725	RefSeq	MGI:1933163	Trim2	tripartite motif-containing 2	protein coding gene	ENSMUSG00000027993
+NM_001271728	RefSeq	MGI:1933163	Trim2	tripartite motif-containing 2	protein coding gene	ENSMUSG00000027993
+NM_011056	RefSeq	MGI:99555	Pde4d	phosphodiesterase 4D, cAMP specific	protein coding gene	ENSMUSG00000021699
+NM_144792	RefSeq	MGI:2444110	Sgms1	sphingomyelin synthase 1	protein coding gene	ENSMUSG00000040451
+NM_001168525	RefSeq	MGI:2444110	Sgms1	sphingomyelin synthase 1	protein coding gene	ENSMUSG00000040451
+NR_033527	RefSeq	MGI:1099448	Ccl25	C-C motif chemokine ligand 25	protein coding gene	ENSMUSG00000023235
+NM_009138	RefSeq	MGI:1099448	Ccl25	C-C motif chemokine ligand 25	protein coding gene	ENSMUSG00000023235
+NM_008857	RefSeq	MGI:99260	Prkci	protein kinase C, iota	protein coding gene	ENSMUSG00000037643
+NM_183029	RefSeq	MGI:1890358	Igf2bp2	insulin-like growth factor 2 mRNA binding protein 2	protein coding gene	ENSMUSG00000033581
+NM_026203	RefSeq	MGI:87971	Ahi1	Abelson helper integration site 1	protein coding gene	ENSMUSG00000019986
+NM_001177776	RefSeq	MGI:87971	Ahi1	Abelson helper integration site 1	protein coding gene	ENSMUSG00000019986
+NR_045064	RefSeq	MGI:1922509	4930556M19Rik	RIKEN cDNA 4930556M19 gene	lncRNA gene	ENSMUSG00000096971
+NR_045063	RefSeq	MGI:1922509	4930556M19Rik	RIKEN cDNA 4930556M19 gene	lncRNA gene	ENSMUSG00000096971
+NR_045065	RefSeq	MGI:1922509	4930556M19Rik	RIKEN cDNA 4930556M19 gene	lncRNA gene	ENSMUSG00000096971
+NM_001166408	RefSeq	MGI:1922896	Rai14	retinoic acid induced 14	protein coding gene	ENSMUSG00000022246
+NM_030690	RefSeq	MGI:1922896	Rai14	retinoic acid induced 14	protein coding gene	ENSMUSG00000022246
+NM_172650	RefSeq	MGI:2444629	Kctd3	potassium channel tetramerisation domain containing 3	protein coding gene	ENSMUSG00000026608
+NM_183154	RefSeq	MGI:3026685	Zfyve1	zinc finger, FYVE domain containing 1	protein coding gene	ENSMUSG00000042628
+NM_001195498	RefSeq	MGI:1918012	Dclk2	doublecortin-like kinase 2	protein coding gene	ENSMUSG00000028078
+NM_001195500	RefSeq	MGI:1918012	Dclk2	doublecortin-like kinase 2	protein coding gene	ENSMUSG00000028078
+NM_027897	RefSeq	MGI:1289234	Rhpn2	rhophilin, Rho GTPase binding protein 2	protein coding gene	ENSMUSG00000030494
+NM_011908	RefSeq	MGI:1344373	Ubl3	ubiquitin-like 3	protein coding gene	ENSMUSG00000001687
+NM_001081286	RefSeq	MGI:109168	Fat1	FAT atypical cadherin 1	protein coding gene	ENSMUSG00000070047
+NM_144514	RefSeq	MGI:109474	Commd1	COMM domain containing 1	protein coding gene	ENSMUSG00000051355
+NM_009263	RefSeq	MGI:98389	Spp1	secreted phosphoprotein 1	protein coding gene	ENSMUSG00000029304
+NM_001204233	RefSeq	MGI:98389	Spp1	secreted phosphoprotein 1	protein coding gene	ENSMUSG00000029304
+NM_001040400	RefSeq	MGI:2443298	Tet2	tet methylcytosine dioxygenase 2	protein coding gene	ENSMUSG00000040943
+NM_011682	RefSeq	MGI:104631	Utrn	utrophin	protein coding gene	ENSMUSG00000019820
+NM_028576	RefSeq	MGI:1920832	Camkmt	calmodulin-lysine N-methyltransferase	protein coding gene	ENSMUSG00000071037
+NM_009786	RefSeq	MGI:1270839	Cacybp	calcyclin binding protein	protein coding gene	ENSMUSG00000014226
+NM_001083121	RefSeq	MGI:108360	Enah	ENAH actin regulator	protein coding gene	ENSMUSG00000022995
+NM_025274	RefSeq	MGI:101800	Dppa5a	developmental pluripotency associated 5A	protein coding gene	ENSMUSG00000060461
+NM_001113198	RefSeq	MGI:104554	Mitf	melanogenesis associated transcription factor	protein coding gene	ENSMUSG00000035158
+NM_001178049	RefSeq	MGI:104554	Mitf	melanogenesis associated transcription factor	protein coding gene	ENSMUSG00000035158
+NM_011160	RefSeq	MGI:108174	Prkg1	protein kinase, cGMP-dependent, type I	protein coding gene	ENSMUSG00000052920
+NM_001013833	RefSeq	MGI:108174	Prkg1	protein kinase, cGMP-dependent, type I	protein coding gene	ENSMUSG00000052920
+NM_016862	RefSeq	MGI:1855699	Vti1a	vesicle transport through interaction with t-SNAREs 1A	protein coding gene	ENSMUSG00000024983
+NM_027230	RefSeq	MGI:1918025	Zmynd8	zinc finger, MYND-type containing 8	protein coding gene	ENSMUSG00000039671
+NM_001252585	RefSeq	MGI:1918025	Zmynd8	zinc finger, MYND-type containing 8	protein coding gene	ENSMUSG00000039671
+NR_045545	RefSeq	MGI:1918025	Zmynd8	zinc finger, MYND-type containing 8	protein coding gene	ENSMUSG00000039671
+NM_022327	RefSeq	MGI:1927244	Ralb	v-ral simian leukemia viral oncogene B	protein coding gene	ENSMUSG00000004451
+NM_028049	RefSeq	MGI:1926014	Fbxo22	F-box protein 22	protein coding gene	ENSMUSG00000032309
+NM_032002	RefSeq	MGI:1933833	Nrg4	neuregulin 4	protein coding gene	ENSMUSG00000032311
+NM_008981	RefSeq	MGI:97814	Ptprg	protein tyrosine phosphatase receptor type G	protein coding gene	ENSMUSG00000121513
+NM_001081348	RefSeq	MGI:2444115	Hecw1	HECT, C2 and WW domain containing E3 ubiquitin protein ligase 1	protein coding gene	ENSMUSG00000021301
+NM_175272	RefSeq	MGI:2183691	Nav2	neuron navigator 2	protein coding gene	ENSMUSG00000052512
+NM_001111016	RefSeq	MGI:2183691	Nav2	neuron navigator 2	protein coding gene	ENSMUSG00000052512
+NM_029556	RefSeq	MGI:1916884	Clybl	citrate lyase beta like	protein coding gene	ENSMUSG00000025545
+NM_009332	RefSeq	MGI:1202876	Tcf7l1	transcription factor 7 like 1 (T cell specific, HMG box)	protein coding gene	ENSMUSG00000055799
+NM_010721	RefSeq	MGI:96795	Lmnb1	lamin B1	protein coding gene	ENSMUSG00000024590
+NM_001113210	RefSeq	MGI:103188	Nfib	nuclear factor I/B	protein coding gene	ENSMUSG00000008575
+NM_028343	RefSeq	MGI:1920009	Tmem135	transmembrane protein 135	protein coding gene	ENSMUSG00000039428
+NM_001199059	RefSeq	MGI:1929459	Rabgef1	RAB guanine nucleotide exchange factor (GEF) 1	protein coding gene	ENSMUSG00000025340
+NM_019983	RefSeq	MGI:1929459	Rabgef1	RAB guanine nucleotide exchange factor (GEF) 1	protein coding gene	ENSMUSG00000025340
+NR_015580	RefSeq	MGI:2444112	Sox2ot	SOX2 overlapping transcript (non-protein coding)	lncRNA gene	ENSMUSG00000105265
+NM_011443	RefSeq	MGI:98364	Sox2	SRY (sex determining region Y)-box 2	protein coding gene	ENSMUSG00000074637
+NM_144888	RefSeq	MGI:2444773	Mavs	mitochondrial antiviral signaling protein	protein coding gene	ENSMUSG00000037523
+NR_037281	RefSeq	MGI:4834313	Mir3098	microRNA 3098	miRNA gene	ENSMUSG00000093157
+NM_019501	RefSeq	MGI:1889278	Pdss1	prenyl (solanesyl) diphosphate synthase, subunit 1	protein coding gene	ENSMUSG00000026784
+NM_080555	RefSeq	MGI:1915166	Plpp3	phospholipid phosphatase 3	protein coding gene	ENSMUSG00000028517
+NM_016861	RefSeq	MGI:1860611	Pdlim1	PDZ and LIM domain 1 (elfin)	protein coding gene	ENSMUSG00000055044
+NM_029619	RefSeq	MGI:1923717	Msrb2	methionine sulfoxide reductase B2	protein coding gene	ENSMUSG00000023094
+NR_035497	RefSeq	MGI:3837218	Mir1970	microRNA 1970	miRNA gene	ENSMUSG00000088464
+NM_080288	RefSeq	MGI:2153044	Elmo1	engulfment and cell motility 1	protein coding gene	ENSMUSG00000041112
+NM_008924	RefSeq	MGI:108025	Prkar2a	protein kinase, cAMP dependent regulatory, type II alpha	protein coding gene	ENSMUSG00000032601
+NM_008888	RefSeq	MGI:1100882	Phox2b	paired-like homeobox 2b	protein coding gene	ENSMUSG00000012520
+NM_134005	RefSeq	MGI:2143702	Enpp3	ectonucleotide pyrophosphatase/phosphodiesterase 3	protein coding gene	ENSMUSG00000019989
+NM_001081336	RefSeq	MGI:2444188	Dgkh	diacylglycerol kinase, eta	protein coding gene	ENSMUSG00000034731
+NM_001081343	RefSeq	MGI:1920455	C9orf72	C9orf72, member of C9orf72-SMCR8 complex	protein coding gene	ENSMUSG00000028300
+NM_172285	RefSeq	MGI:97616	Plcg2	phospholipase C, gamma 2	protein coding gene	ENSMUSG00000034330
+NM_139140	RefSeq	MGI:1919822	Spats2	spermatogenesis associated, serine-rich 2	protein coding gene	ENSMUSG00000051934
+NM_019776	RefSeq	MGI:1929266	Snd1	staphylococcal nuclease and tudor domain containing 1	protein coding gene	ENSMUSG00000001424
+NM_172595	RefSeq	MGI:2442308	Arl15	ADP-ribosylation factor-like 15	protein coding gene	ENSMUSG00000042348
+NM_001168623	RefSeq	MGI:2177308	Znrf1	zinc and ring finger 1	protein coding gene	ENSMUSG00000033545
+NM_001168622	RefSeq	MGI:2177308	Znrf1	zinc and ring finger 1	protein coding gene	ENSMUSG00000033545
+NM_027570	RefSeq	MGI:106428	Ldhd	lactate dehydrogenase D	protein coding gene	ENSMUSG00000031958
+NM_001163064	RefSeq	MGI:2143755	AU041133	expressed sequence AU041133	protein coding gene	ENSMUSG00000078435
+NM_001142960	RefSeq	MGI:2685412	Bcl2l15	BCLl2-like 15	protein coding gene	ENSMUSG00000044165
+NM_025680	RefSeq	MGI:1913892	Ctnnbl1	catenin, beta like 1	protein coding gene	ENSMUSG00000027649
+NM_010887	RefSeq	MGI:1343135	Ndufs4	NADH:ubiquinone oxidoreductase core subunit S4	protein coding gene	ENSMUSG00000021764
+NM_138628	RefSeq	MGI:2671945	Txlnb	taxilin beta	protein coding gene	ENSMUSG00000039891
+NR_040332	RefSeq	MGI:2442861	A930006I01Rik	RIKEN cDNA A930006I01 gene	lncRNA gene	ENSMUSG00000087278
+NM_001252251	RefSeq	MGI:97307	Nf2	neurofibromin 2	protein coding gene	ENSMUSG00000009073
+NM_001252250	RefSeq	MGI:97307	Nf2	neurofibromin 2	protein coding gene	ENSMUSG00000009073
+NM_001252253	RefSeq	MGI:97307	Nf2	neurofibromin 2	protein coding gene	ENSMUSG00000009073
+NM_146239	RefSeq	MGI:97517	Cdk17	cyclin dependent kinase 17	protein coding gene	ENSMUSG00000020015
+NM_001033789	RefSeq	MGI:3646292	Gm5820	predicted gene 5820	protein coding gene	ENSMUSG00000117994
+NM_001162465	RefSeq	MGI:1203728	Dtnb	dystrobrevin, beta	protein coding gene	ENSMUSG00000071454
+NM_007886	RefSeq	MGI:1203728	Dtnb	dystrobrevin, beta	protein coding gene	ENSMUSG00000071454
+NM_153409	RefSeq	MGI:1925021	Csrnp3	cysteine-serine-rich nuclear protein 3	protein coding gene	ENSMUSG00000044647
+NR_102303	RefSeq	MGI:2444369	A330033J07Rik	RIKEN cDNA A330033J07 gene	lncRNA gene	ENSMUSG00000097622
+NM_183116	RefSeq	MGI:1923556	Slc18b1	solute carrier family 18, subfamily B, member 1	protein coding gene	ENSMUSG00000037455
+NM_030133	RefSeq	MGI:1925836	Srbd1	S1 RNA binding domain 1	protein coding gene	ENSMUSG00000024135
+NM_010262	RefSeq	MGI:95668	Gbx2	gastrulation brain homeobox 2	protein coding gene	ENSMUSG00000034486
+NM_001172099	RefSeq	MGI:2144281	Cuedc1	CUE domain containing 1	protein coding gene	ENSMUSG00000018378
+NM_198013	RefSeq	MGI:2144281	Cuedc1	CUE domain containing 1	protein coding gene	ENSMUSG00000018378
+NM_001033298	RefSeq	MGI:2684960	Kiz	kizuna centrosomal protein	protein coding gene	ENSMUSG00000074749
+NM_001045528	RefSeq	MGI:2444782	Fkbp15	FK506 binding protein 15	protein coding gene	ENSMUSG00000066151
+NM_001171007	RefSeq	MGI:1341839	Nod1	nucleotide-binding oligomerization domain containing 1	protein coding gene	ENSMUSG00000038058
+NM_172729	RefSeq	MGI:1341839	Nod1	nucleotide-binding oligomerization domain containing 1	protein coding gene	ENSMUSG00000038058
+NM_011878	RefSeq	MGI:1344338	Tiam2	T cell lymphoma invasion and metastasis 2	protein coding gene	ENSMUSG00000023800
+NM_001122998	RefSeq	MGI:1344338	Tiam2	T cell lymphoma invasion and metastasis 2	protein coding gene	ENSMUSG00000023800
+NM_001276465	RefSeq	MGI:2448530	Vps13d	vacuolar protein sorting 13D	protein coding gene	ENSMUSG00000020220
+NM_001276502	RefSeq	MGI:2448530	Vps13d	vacuolar protein sorting 13D	protein coding gene	ENSMUSG00000020220
+NM_001029856	RefSeq	MGI:2442925	Atad5	ATPase family, AAA domain containing 5	protein coding gene	ENSMUSG00000017550
+NM_183275	RefSeq	MGI:1915800	Tefm	transcription elongation factor, mitochondrial	protein coding gene	ENSMUSG00000046909
+NM_001171000	RefSeq	MGI:1921590	Ahcyl2	S-adenosylhomocysteine hydrolase-like 2	protein coding gene	ENSMUSG00000029772
+NR_040521	RefSeq	MGI:1922972	4932412D23Rik	RIKEN cDNA 4932412D23 gene	lncRNA gene	ENSMUSG00000075070
+NM_183023	RefSeq	MGI:2674366	Rims4	regulating synaptic membrane exocytosis 4	protein coding gene	ENSMUSG00000035226
+NM_016688	RefSeq	MGI:1859170	Pdcd7	programmed cell death 7	protein coding gene	ENSMUSG00000041837
+NM_001039557	RefSeq	MGI:3603828	Mroh8	maestro heat-like repeat family member 8	protein coding gene	ENSMUSG00000074627
+NM_001033420	RefSeq	MGI:2429765	Dock1	dedicator of cytokinesis 1	protein coding gene	ENSMUSG00000058325
+NM_009873	RefSeq	MGI:1277162	Cdk6	cyclin dependent kinase 6	protein coding gene	ENSMUSG00000040274
+NM_144881	RefSeq	MGI:2444681	Hhat	hedgehog acyltransferase	protein coding gene	ENSMUSG00000037375
+NM_001122594	RefSeq	MGI:2444928	Phlpp2	PH domain and leucine rich repeat protein phosphatase 2	protein coding gene	ENSMUSG00000031732
+NM_177047	RefSeq	MGI:1919847	Auts2	autism susceptibility candidate 2	protein coding gene	ENSMUSG00000029673
+NM_001033259	RefSeq	MGI:3026965	Mcu	mitochondrial calcium uniporter	protein coding gene	ENSMUSG00000009647
+NM_010816	RefSeq	MGI:1316740	Morc1	microrchidia 1	protein coding gene	ENSMUSG00000022652
+NM_175459	RefSeq	MGI:2444289	Glis3	GLIS family zinc finger 3	protein coding gene	ENSMUSG00000052942
+NM_001039170	RefSeq	MGI:1914440	Eif4e2	eukaryotic translation initiation factor 4E member 2	protein coding gene	ENSMUSG00000026254
+NM_023314	RefSeq	MGI:1914440	Eif4e2	eukaryotic translation initiation factor 4E member 2	protein coding gene	ENSMUSG00000026254
+NM_001039169	RefSeq	MGI:1914440	Eif4e2	eukaryotic translation initiation factor 4E member 2	protein coding gene	ENSMUSG00000026254
+NM_001199494	RefSeq	MGI:108090	Ei24	etoposide induced 2.4 mRNA	protein coding gene	ENSMUSG00000062762
+NM_007915	RefSeq	MGI:108090	Ei24	etoposide induced 2.4 mRNA	protein coding gene	ENSMUSG00000062762
+NM_021480	RefSeq	MGI:1926231	Tdh	L-threonine dehydrogenase	protein coding gene	ENSMUSG00000021953
+NM_009022	RefSeq	MGI:107928	Aldh1a2	aldehyde dehydrogenase family 1, subfamily A2	protein coding gene	ENSMUSG00000013584
+NM_177005	RefSeq	MGI:2442755	Glt1d1	glycosyltransferase 1 domain containing 1	protein coding gene	ENSMUSG00000049971
+NR_015388	RefSeq	MGI:2443217	Dlx6os1	distal-less homeobox 6, opposite strand 1	antisense lncRNA gene	ENSMUSG00000090063
+NM_008922	RefSeq	MGI:97758	Prim2	DNA primase, p58 subunit	protein coding gene	ENSMUSG00000026134
+NM_011567	RefSeq	MGI:106907	Tead4	TEA domain family member 4	protein coding gene	ENSMUSG00000030353
+NM_008636	RefSeq	MGI:101786	Mtf1	metal response element binding transcription factor 1	protein coding gene	ENSMUSG00000028890
+NM_008133	RefSeq	MGI:95753	Glud1	glutamate dehydrogenase 1	protein coding gene	ENSMUSG00000021794
+NM_008420	RefSeq	MGI:96666	Kcnb1	potassium voltage gated channel, Shab-related subfamily, member 1	protein coding gene	ENSMUSG00000050556
+NM_001081345	RefSeq	MGI:2448567	Chd2	chromodomain helicase DNA binding protein 2	protein coding gene	ENSMUSG00000078671
+NM_183428	RefSeq	MGI:95401	Epb41	erythrocyte membrane protein band 4.1	protein coding gene	ENSMUSG00000028906
+NM_001128606	RefSeq	MGI:95401	Epb41	erythrocyte membrane protein band 4.1	protein coding gene	ENSMUSG00000028906
+NM_001128607	RefSeq	MGI:95401	Epb41	erythrocyte membrane protein band 4.1	protein coding gene	ENSMUSG00000028906
+NM_007897	RefSeq	MGI:95275	Ebf1	early B cell factor 1	protein coding gene	ENSMUSG00000057098
+NR_029384	RefSeq	MGI:3583292	Otx2os1	orthodenticle homeobox 2 opposite strand 1	lncRNA gene	ENSMUSG00000098682
+NM_177445	RefSeq	MGI:2442544	Dars1	aspartyl-tRNA synthetase 1	protein coding gene	ENSMUSG00000026356
+NM_178714	RefSeq	MGI:2144814	Lrfn5	leucine rich repeat and fibronectin type III domain containing 5	protein coding gene	ENSMUSG00000035653
+NM_013514	RefSeq	MGI:99670	Dmtn	dematin actin binding protein	protein coding gene	ENSMUSG00000022099
+NM_001252664	RefSeq	MGI:99670	Dmtn	dematin actin binding protein	protein coding gene	ENSMUSG00000022099
+NM_001252663	RefSeq	MGI:99670	Dmtn	dematin actin binding protein	protein coding gene	ENSMUSG00000022099
+NM_001252665	RefSeq	MGI:99670	Dmtn	dematin actin binding protein	protein coding gene	ENSMUSG00000022099
+NM_177546	RefSeq	MGI:2147987	Pcyt1b	phosphate cytidylyltransferase 1, choline, beta isoform	protein coding gene	ENSMUSG00000035246
+NM_001013813	RefSeq	MGI:2389460	Maml2	mastermind like transcriptional coactivator 2	protein coding gene	ENSMUSG00000031925
+NM_173776	RefSeq	MGI:2389460	Maml2	mastermind like transcriptional coactivator 2	protein coding gene	ENSMUSG00000031925
+NM_001122730	RefSeq	MGI:3648294	Tnrc18	trinucleotide repeat containing 18	protein coding gene	ENSMUSG00000039477
+NM_178242	RefSeq	MGI:3648294	Tnrc18	trinucleotide repeat containing 18	protein coding gene	ENSMUSG00000039477
+NR_045686	RefSeq	MGI:3802162	Gm16062	predicted gene 16062	lncRNA gene	ENSMUSG00000087249
+NM_011991	RefSeq	MGI:1349409	Cops3	COP9 signalosome subunit 3	protein coding gene	ENSMUSG00000019373
+NM_172671	RefSeq	MGI:1891468	Lgr4	leucine-rich repeat-containing G protein-coupled receptor 4	protein coding gene	ENSMUSG00000050199
+NM_001109661	RefSeq	MGI:894679	Bach2	BTB and CNC homology, basic leucine zipper transcription factor 2	protein coding gene	ENSMUSG00000040270
+NM_029286	RefSeq	MGI:1920582	Ccdc30	coiled-coil domain containing 30	protein coding gene	ENSMUSG00000028637
+NM_028709	RefSeq	MGI:1921257	Abtb3	ankyrin repeat and BTB domain containing 3	protein coding gene	ENSMUSG00000020042
+NM_172495	RefSeq	MGI:2444847	Ncoa7	nuclear receptor coactivator 7	protein coding gene	ENSMUSG00000039697
+NM_013582	RefSeq	MGI:96783	Lhcgr	luteinizing hormone/choriogonadotropin receptor	protein coding gene	ENSMUSG00000024107
+NM_001205044	RefSeq	MGI:104813	Jarid2	jumonji and AT-rich interaction domain containing 2	protein coding gene	ENSMUSG00000038518
+NM_001205043	RefSeq	MGI:104813	Jarid2	jumonji and AT-rich interaction domain containing 2	protein coding gene	ENSMUSG00000038518
+NM_019939	RefSeq	MGI:1927340	Pals2	protein associated with LIN7 2, MAGUK family member	protein coding gene	ENSMUSG00000038388
+NM_025336	RefSeq	MGI:1913325	Chchd3	coiled-coil-helix-coiled-coil-helix domain containing 3	protein coding gene	ENSMUSG00000053768
+NM_007496	RefSeq	MGI:99948	Zfhx3	zinc finger homeobox 3	protein coding gene	ENSMUSG00000038872
+NM_001252341	RefSeq	MGI:99667	Syt1	synaptotagmin I	protein coding gene	ENSMUSG00000035864
+NM_172562	RefSeq	MGI:2144471	Tada2a	transcriptional adaptor 2A	protein coding gene	ENSMUSG00000018651
+NM_172150	RefSeq	MGI:2387217	Ift52	intraflagellar transport 52	protein coding gene	ENSMUSG00000017858
+NM_013907	RefSeq	MGI:1354698	Fbxw4	F-box and WD-40 domain protein 4	protein coding gene	ENSMUSG00000040913
+NM_011062	RefSeq	MGI:1338068	Pdpk1	3-phosphoinositide dependent protein kinase 1	protein coding gene	ENSMUSG00000024122
+NM_001080773	RefSeq	MGI:1338068	Pdpk1	3-phosphoinositide dependent protein kinase 1	protein coding gene	ENSMUSG00000024122
+NM_133697	RefSeq	MGI:1915802	Smim14	small integral membrane protein 14	protein coding gene	ENSMUSG00000037822
+NM_019472	RefSeq	MGI:107716	Myo10	myosin X	protein coding gene	ENSMUSG00000022272
+NM_020601	RefSeq	MGI:1336172	Tbl1x	transducin (beta)-like 1 X-linked	protein coding gene	ENSMUSG00000025246
+NM_001033167	RefSeq	MGI:1920352	Slc22a23	solute carrier family 22, member 23	protein coding gene	ENSMUSG00000038267
+NM_145492	RefSeq	MGI:95459	Zfp521	zinc finger protein 521	protein coding gene	ENSMUSG00000024420
+NM_001253759	RefSeq	MGI:2444896	Enox1	ecto-NOX disulfide-thiol exchanger 1	protein coding gene	ENSMUSG00000022012
+NM_175387	RefSeq	MGI:1933973	Rbfox2	RNA binding protein, fox-1 homolog (C. elegans) 2	protein coding gene	ENSMUSG00000033565
+NM_001110828	RefSeq	MGI:1933973	Rbfox2	RNA binding protein, fox-1 homolog (C. elegans) 2	protein coding gene	ENSMUSG00000033565
+NM_001081027	RefSeq	MGI:3036273	Kcnt2	potassium channel, subfamily T, member 2	protein coding gene	ENSMUSG00000052726
+NM_177224	RefSeq	MGI:1924001	Chd9	chromodomain helicase DNA binding protein 9	protein coding gene	ENSMUSG00000056608
+NM_172689	RefSeq	MGI:2442858	Rigi	RNA sensor RIG-I	protein coding gene	ENSMUSG00000040296
+NM_201371	RefSeq	MGI:3043083	Prmt8	protein arginine N-methyltransferase 8	protein coding gene	ENSMUSG00000030350
+NM_027188	RefSeq	MGI:1916976	Smyd3	SET and MYND domain containing 3	protein coding gene	ENSMUSG00000055067
+NM_207659	RefSeq	MGI:2443554	Hook3	hook microtubule tethering protein 3	protein coding gene	ENSMUSG00000037234
+NM_001012451	RefSeq	MGI:2154278	Ankrd6	ankyrin repeat domain 6	protein coding gene	ENSMUSG00000040183
+NM_010100	RefSeq	MGI:1343498	Edar	ectodysplasin-A receptor	protein coding gene	ENSMUSG00000003227
+NM_026816	RefSeq	MGI:1915955	Gtf2f2	general transcription factor IIF, polypeptide 2	protein coding gene	ENSMUSG00000067995
+NM_145128	RefSeq	MGI:894701	Mgat5	mannoside acetylglucosaminyltransferase 5	protein coding gene	ENSMUSG00000036155
+NR_075097	RefSeq	MGI:2684854	Slc25a43	solute carrier family 25, member 43	protein coding gene	ENSMUSG00000037636
+NM_001034013	RefSeq	MGI:1100867	Asic2	acid-sensing ion channel 2	protein coding gene	ENSMUSG00000020704
+NM_001025576	RefSeq	MGI:1919735	Ccdc141	coiled-coil domain containing 141	protein coding gene	ENSMUSG00000044033
+NM_025290	RefSeq	MGI:1194909	Rsph1	radial spoke head 1 homolog (Chlamydomonas)	protein coding gene	ENSMUSG00000024033
+NM_011479	RefSeq	MGI:108074	Sptlc2	serine palmitoyltransferase, long chain base subunit 2	protein coding gene	ENSMUSG00000021036
+NM_029774	RefSeq	MGI:1921660	Ttll11	tubulin tyrosine ligase-like family, member 11	protein coding gene	ENSMUSG00000026885
+NM_138583	RefSeq	MGI:101825	Tango2	transport and golgi organization 2	protein coding gene	ENSMUSG00000013539
+NM_001171054	RefSeq	MGI:2151172	Mta3	metastasis associated 3	protein coding gene	ENSMUSG00000055817
+NM_054082	RefSeq	MGI:2151172	Mta3	metastasis associated 3	protein coding gene	ENSMUSG00000055817
+NM_001171052	RefSeq	MGI:2151172	Mta3	metastasis associated 3	protein coding gene	ENSMUSG00000055817
+NM_001172121	RefSeq	MGI:2444477	Rbms3	RNA binding motif, single stranded interacting protein	protein coding gene	ENSMUSG00000039607
+NM_001172123	RefSeq	MGI:2444477	Rbms3	RNA binding motif, single stranded interacting protein	protein coding gene	ENSMUSG00000039607
+NM_029736	RefSeq	MGI:1924025	Slc10a7	solute carrier family 10 (sodium/bile acid cotransporter family), member 7	protein coding gene	ENSMUSG00000031684
+NM_198702	RefSeq	MGI:2441950	Adgrl3	adhesion G protein-coupled receptor L3	protein coding gene	ENSMUSG00000037605
+NM_008274	RefSeq	MGI:96204	Hoxd12	homeobox D12	protein coding gene	ENSMUSG00000001823
+NM_013780	RefSeq	MGI:1351610	Npas3	neuronal PAS domain protein 3	protein coding gene	ENSMUSG00000021010
+NM_029896	RefSeq	MGI:1924555	Wdr82	WD repeat domain containing 82	protein coding gene	ENSMUSG00000020257
+NM_053072	RefSeq	MGI:1261419	Fgd6	FYVE, RhoGEF and PH domain containing 6	protein coding gene	ENSMUSG00000020021
+NM_010195	RefSeq	MGI:1341817	Lgr5	leucine rich repeat containing G protein coupled receptor 5	protein coding gene	ENSMUSG00000020140
+NM_001109764	RefSeq	MGI:88275	Ctnna2	catenin alpha 2	protein coding gene	ENSMUSG00000063063
+NM_023598	RefSeq	MGI:2175912	Arid5b	AT-rich interaction domain 5B	protein coding gene	ENSMUSG00000019947
+NM_007644	RefSeq	MGI:1196458	Scarb2	scavenger receptor class B, member 2	protein coding gene	ENSMUSG00000029426
+NM_010896	RefSeq	MGI:107754	Neurog1	neurogenin 1	protein coding gene	ENSMUSG00000048904
+NM_019810	RefSeq	MGI:107678	Slc5a1	solute carrier family 5 (sodium/glucose cotransporter), member 1	protein coding gene	ENSMUSG00000011034
+NM_001024918	RefSeq	MGI:1918387	Rfx4	regulatory factor X, 4 (influences HLA class II expression)	protein coding gene	ENSMUSG00000020037
+NM_027689	RefSeq	MGI:1918387	Rfx4	regulatory factor X, 4 (influences HLA class II expression)	protein coding gene	ENSMUSG00000020037
+NR_029592	RefSeq	MGI:2676880	Mir205	microRNA 205	miRNA gene	ENSMUSG00000065533
+NM_001177899	RefSeq	MGI:1925723	Skap1	src family associated phosphoprotein 1	protein coding gene	ENSMUSG00000057058
+NM_001113545	RefSeq	MGI:1920992	Lima1	LIM domain and actin binding 1	protein coding gene	ENSMUSG00000023022
+NM_009346	RefSeq	MGI:101876	Tead1	TEA domain family member 1	protein coding gene	ENSMUSG00000055320
+NM_001161371	RefSeq	MGI:107708	Ss18	SS18, subunit of BAF chromatin remodeling complex	protein coding gene	ENSMUSG00000037013
+NM_001040426	RefSeq	MGI:2672033	Thsd4	thrombospondin, type I, domain containing 4	protein coding gene	ENSMUSG00000032289
+NM_013626	RefSeq	MGI:97475	Pam	peptidylglycine alpha-amidating monooxygenase	protein coding gene	ENSMUSG00000026335
+NM_183021	RefSeq	MGI:3039623	Thada	thyroid adenoma associated	protein coding gene	ENSMUSG00000024251
+NM_001163645	RefSeq	MGI:1918970	Osbpl3	oxysterol binding protein-like 3	protein coding gene	ENSMUSG00000029822
+NM_173447	RefSeq	MGI:1096337	Ephb1	Eph receptor B1	protein coding gene	ENSMUSG00000032537
+NM_173406	RefSeq	MGI:2141450	Jazf1	JAZF zinc finger 1	protein coding gene	ENSMUSG00000063568
+NM_001081397	RefSeq	MGI:2685951	Myo16	myosin XVI	protein coding gene	ENSMUSG00000039057
+NM_145994	RefSeq	MGI:104913	Abi1	abl interactor 1	protein coding gene	ENSMUSG00000058835
+NM_199466	RefSeq	MGI:1926048	Eml4	echinoderm microtubule associated protein like 4	protein coding gene	ENSMUSG00000032624
+NM_001110796	RefSeq	MGI:1349390	Pclo	piccolo (presynaptic cytomatrix protein)	protein coding gene	ENSMUSG00000061601
+NM_011995	RefSeq	MGI:1349390	Pclo	piccolo (presynaptic cytomatrix protein)	protein coding gene	ENSMUSG00000061601
+NM_001007589	RefSeq	MGI:1889364	Akirin2	akirin 2	protein coding gene	ENSMUSG00000028291
+NM_146043	RefSeq	MGI:109242	Spin1	spindlin 1	protein coding gene	ENSMUSG00000021395
+NM_027871	RefSeq	MGI:1918954	Arhgef3	Rho guanine nucleotide exchange factor 3	protein coding gene	ENSMUSG00000021895
+NM_177612	RefSeq	MGI:2661445	Ctnna3	catenin alpha 3	protein coding gene	ENSMUSG00000060843
+NM_001164376	RefSeq	MGI:2661445	Ctnna3	catenin alpha 3	protein coding gene	ENSMUSG00000060843
+NM_001164519	RefSeq	MGI:2661445	Ctnna3	catenin alpha 3	protein coding gene	ENSMUSG00000060843
+NM_027617	RefSeq	MGI:1918201	Spata1	spermatogenesis associated 1	protein coding gene	ENSMUSG00000028188
+NM_029961	RefSeq	MGI:1924956	Abcb5	ATP-binding cassette, sub-family B member 5	protein coding gene	ENSMUSG00000072791
+NM_001024617	RefSeq	MGI:2158925	Inpp4b	inositol polyphosphate-4-phosphatase, type II	protein coding gene	ENSMUSG00000037940
+NM_028275	RefSeq	MGI:1923883	Lrmda	leucine rich melanocyte differentiation associated	protein coding gene	ENSMUSG00000063458
+NM_009728	RefSeq	MGI:1330809	Atp10a	ATPase, class V, type 10A	protein coding gene	ENSMUSG00000025324
+NM_172809	RefSeq	MGI:1354724	Sacs	sacsin	protein coding gene	ENSMUSG00000048279
+NM_011634	RefSeq	MGI:1096377	Traip	TRAF-interacting protein	protein coding gene	ENSMUSG00000032586
+NM_177780	RefSeq	MGI:2652871	Dock5	dedicator of cytokinesis 5	protein coding gene	ENSMUSG00000044447
+NM_029895	RefSeq	MGI:95454	Etl4	enhancer trap locus 4	protein coding gene	ENSMUSG00000036617
+NM_001177630	RefSeq	MGI:95454	Etl4	enhancer trap locus 4	protein coding gene	ENSMUSG00000036617
+NM_001081006	RefSeq	MGI:95454	Etl4	enhancer trap locus 4	protein coding gene	ENSMUSG00000036617
+NM_001081274	RefSeq	MGI:97553	Pgd	phosphogluconate dehydrogenase	protein coding gene	ENSMUSG00000028961
+NM_016667	RefSeq	MGI:101781	Sntb1	syntrophin, basic 1	protein coding gene	ENSMUSG00000060429
+NM_001163686	RefSeq	MGI:1924079	Dok5	docking protein 5	protein coding gene	ENSMUSG00000027560
+NM_198618	RefSeq	MGI:3039563	Dlgap3	DLG associated protein 3	protein coding gene	ENSMUSG00000042388
+NM_028233	RefSeq	MGI:1919666	Lrpprc	leucine-rich PPR-motif containing	protein coding gene	ENSMUSG00000024120
+NR_037145	RefSeq	MGI:1914824	Alg13	asparagine-linked glycosylation 13	protein coding gene	ENSMUSG00000041718
+NM_001003918	RefSeq	MGI:2182061	Usp7	ubiquitin specific peptidase 7	protein coding gene	ENSMUSG00000022710
+NM_008744	RefSeq	MGI:105088	Ntn1	netrin 1	protein coding gene	ENSMUSG00000020902
+NM_175460	RefSeq	MGI:2444155	Nmnat2	nicotinamide nucleotide adenylyltransferase 2	protein coding gene	ENSMUSG00000042751
+NM_001033272	RefSeq	MGI:104838	Spata13	spermatogenesis associated 13	protein coding gene	ENSMUSG00000021990
+NM_009510	RefSeq	MGI:98931	Ezr	ezrin	protein coding gene	ENSMUSG00000052397
+NM_010897	RefSeq	MGI:97306	Nf1	neurofibromin 1	protein coding gene	ENSMUSG00000020716
+NM_001081359	RefSeq	MGI:1918040	Ubr5	ubiquitin protein ligase E3 component n-recognin 5	protein coding gene	ENSMUSG00000037487
+NM_011139	RefSeq	MGI:102565	Pou2f3	POU domain, class 2, transcription factor 3	protein coding gene	ENSMUSG00000032015
+NM_175011	RefSeq	MGI:3045360	Ftdc2	ferritin domain containing 2	protein coding gene	ENSMUSG00000055789
+NM_001194940	RefSeq	MGI:1354949	Dlc1	deleted in liver cancer 1	protein coding gene	ENSMUSG00000031523
+NM_001194941	RefSeq	MGI:1354949	Dlc1	deleted in liver cancer 1	protein coding gene	ENSMUSG00000031523
+NM_015802	RefSeq	MGI:1354949	Dlc1	deleted in liver cancer 1	protein coding gene	ENSMUSG00000031523
+NM_008957	RefSeq	MGI:105373	Ptch1	patched 1	protein coding gene	ENSMUSG00000021466
+NM_001033217	RefSeq	MGI:1916034	Prickle1	prickle planar cell polarity protein 1	protein coding gene	ENSMUSG00000036158
+NM_001104614		No associated gene				
+NM_011211	RefSeq	MGI:97812	Ptprd	protein tyrosine phosphatase receptor type D	protein coding gene	ENSMUSG00000028399
+NM_019707	RefSeq	MGI:99551	Cdh13	cadherin 13	protein coding gene	ENSMUSG00000031841
+NM_010243	RefSeq	MGI:1330859	Fut9	fucosyltransferase 9	protein coding gene	ENSMUSG00000055373
+NM_139218	RefSeq	MGI:1920958	Dppa3	developmental pluripotency-associated 3	protein coding gene	ENSMUSG00000046323
+NM_133857	RefSeq	MGI:2139607	Usp53	ubiquitin specific peptidase 53	protein coding gene	ENSMUSG00000039701
+NM_019923	RefSeq	MGI:99418	Itpr2	inositol 1,4,5-triphosphate receptor 2	protein coding gene	ENSMUSG00000030287
+NM_134115	RefSeq	MGI:2442572	Stk38	serine/threonine kinase 38	protein coding gene	ENSMUSG00000024006
+NM_001082962	RefSeq	MGI:98347	Snrpn	small nuclear ribonucleoprotein N	protein coding gene	ENSMUSG00000102252
+NM_001082961	RefSeq	MGI:98347	Snrpn	small nuclear ribonucleoprotein N	protein coding gene	ENSMUSG00000102252
+NM_009785	RefSeq	MGI:1338890	Cacna2d3	calcium channel, voltage-dependent, alpha2/delta subunit 3	protein coding gene	ENSMUSG00000021991
+NM_027093	RefSeq	MGI:1916737	Ndufaf5	NADH:ubiquinone oxidoreductase complex assembly factor 5	protein coding gene	ENSMUSG00000027384
+NR_027975	RefSeq	MGI:3645522	Sox1ot	Sox1 overlapping transcript	sense overlapping lncRNA gene	ENSMUSG00000047935
+NM_178017	RefSeq	MGI:1918073	Hmgxb4	HMG box domain containing 4	protein coding gene	ENSMUSG00000034518
+NM_178710	RefSeq	MGI:2445031	Sik2	salt inducible kinase 2	protein coding gene	ENSMUSG00000037112
+NM_011360	RefSeq	MGI:1329042	Sgce	sarcoglycan, epsilon	protein coding gene	ENSMUSG00000004631
+NM_028664	RefSeq	MGI:1921094	Ankrd45	ankyrin repeat domain 45	protein coding gene	ENSMUSG00000044835
+NM_001195189	RefSeq	MGI:1922183	Tex50	testis expressed 50	protein coding gene	ENSMUSG00000049160
+NM_172868	RefSeq	MGI:5141924	Pakap	paralemmin A kinase anchor protein	protein coding gene	ENSMUSG00000038729
+NM_172868	RefSeq	MGI:5141924	Pakap	paralemmin A kinase anchor protein	protein coding gene	ENSMUSG00000089945
+NM_172868	RefSeq	MGI:5141924	Pakap	paralemmin A kinase anchor protein	protein coding gene	ENSMUSG00000090053
+NM_001167976	RefSeq	MGI:2445059	Slc25a21	solute carrier family 25 (mitochondrial oxodicarboxylate carrier), member 21	protein coding gene	ENSMUSG00000035472
+NM_172577	RefSeq	MGI:2445059	Slc25a21	solute carrier family 25 (mitochondrial oxodicarboxylate carrier), member 21	protein coding gene	ENSMUSG00000035472
+NM_001010973	RefSeq	MGI:108482	Hrh2	histamine receptor H2	protein coding gene	ENSMUSG00000034987
+NM_008000	RefSeq	MGI:105917	Fer	FER tyrosine kinase	protein coding gene	ENSMUSG00000000127
+NM_001037997	RefSeq	MGI:105917	Fer	FER tyrosine kinase	protein coding gene	ENSMUSG00000000127
+NM_133672	RefSeq	MGI:1353654	Vps26a	VPS26 retromer complex component A	protein coding gene	ENSMUSG00000020078
+NM_001113355	RefSeq	MGI:1353654	Vps26a	VPS26 retromer complex component A	protein coding gene	ENSMUSG00000020078
+NM_019778	RefSeq	MGI:1929213	Zbtb20	zinc finger and BTB domain containing 20	protein coding gene	ENSMUSG00000022708
+NM_001081378	RefSeq	MGI:1924730	Kidins220	kinase D-interacting substrate 220	protein coding gene	ENSMUSG00000036333
+NM_053117	RefSeq	MGI:2135606	Pard6g	par-6 family cell polarity regulator gamma	protein coding gene	ENSMUSG00000056214
+NM_001033348	RefSeq	MGI:3036245	Ralgapa2	Ral GTPase activating protein, alpha subunit 2 (catalytic)	protein coding gene	ENSMUSG00000037110
+NM_001159724	RefSeq	MGI:97822	Nectin2	nectin cell adhesion molecule 2	protein coding gene	ENSMUSG00000062300
+NM_008990	RefSeq	MGI:97822	Nectin2	nectin cell adhesion molecule 2	protein coding gene	ENSMUSG00000062300
+NM_207652	RefSeq	MGI:109127	Tsc22d1	TSC22 domain family, member 1	protein coding gene	ENSMUSG00000022010
+NM_007378	RefSeq	MGI:109424	Abca4	ATP-binding cassette, sub-family A member 4	protein coding gene	ENSMUSG00000028125
+NM_011215	RefSeq	MGI:107418	Ptprn2	protein tyrosine phosphatase receptor type N polypeptide 2	protein coding gene	ENSMUSG00000056553
+NR_044987	RefSeq	MGI:3779489	Gm5441	predicted gene 5441	lncRNA gene	ENSMUSG00000101930
+NM_018748	RefSeq	MGI:1859646	Golga4	golgin A4	protein coding gene	ENSMUSG00000038708
+NM_010611	RefSeq	MGI:1309503	Kcnq2	potassium voltage-gated channel, subfamily Q, member 2	protein coding gene	ENSMUSG00000016346
+NM_001006669	RefSeq	MGI:1309503	Kcnq2	potassium voltage-gated channel, subfamily Q, member 2	protein coding gene	ENSMUSG00000016346
+NM_001006680		No associated gene				
+NM_001006677		No associated gene				
+NM_001006676		No associated gene				
+NM_001006675		No associated gene				
+NM_177192	RefSeq	MGI:2444273	Dennd5b	DENN domain containing 5B	protein coding gene	ENSMUSG00000030313
+NM_181407	RefSeq	MGI:1916679	Me3	malic enzyme 3, NADP(+)-dependent, mitochondrial	protein coding gene	ENSMUSG00000030621
+NM_173780	RefSeq	MGI:2442430	Klf8	Kruppel-like transcription factor 8	protein coding gene	ENSMUSG00000041649
+NM_177284	RefSeq	MGI:1096391	Nrxn1	neurexin I	protein coding gene	ENSMUSG00000024109
+NM_008150	RefSeq	MGI:104902	Gpc4	glypican 4	protein coding gene	ENSMUSG00000031119
+NM_001037098	RefSeq	MGI:1915241	Nacc2	nucleus accumbens associated 2, BEN and BTB (POZ) domain containing	protein coding gene	ENSMUSG00000026932
+NM_026495	RefSeq	MGI:1915241	Nacc2	nucleus accumbens associated 2, BEN and BTB (POZ) domain containing	protein coding gene	ENSMUSG00000026932
+NR_035427	RefSeq	MGI:3783368	Mir1195	microRNA 1195	miRNA gene	ENSMUSG00000080468
+NM_183138	RefSeq	MGI:2446229	Tet3	tet methylcytosine dioxygenase 3	protein coding gene	ENSMUSG00000034832
+NM_177618	RefSeq	MGI:2448493	Wscd1	WSC domain containing 1	protein coding gene	ENSMUSG00000020811
+NM_025522	RefSeq	MGI:1913625	Dhrs7	dehydrogenase/reductase 7	protein coding gene	ENSMUSG00000021094
+NM_029843	RefSeq	MGI:1924286	1700109H08Rik	RIKEN cDNA 1700109H08 gene	protein coding gene	ENSMUSG00000008307
+NM_021512	RefSeq	MGI:1926227	Nup160	nucleoporin 160	protein coding gene	ENSMUSG00000051329
+NM_001177416	RefSeq	MGI:3643580	Eddm13	epididymal protein 13	protein coding gene	ENSMUSG00000053367
+NM_001177417	RefSeq	MGI:3643580	Eddm13	epididymal protein 13	protein coding gene	ENSMUSG00000053367
+NM_178194	RefSeq	MGI:2448380	H2bc6	H2B clustered histone 6	protein coding gene	ENSMUSG00000047246
+NM_001177653	RefSeq	MGI:2448380	H2bc6	H2B clustered histone 6	protein coding gene	ENSMUSG00000047246
+NM_009951	RefSeq	MGI:1890357	Igf2bp1	insulin-like growth factor 2 mRNA binding protein 1	protein coding gene	ENSMUSG00000013415
+NM_053122	RefSeq	MGI:2135611	Immp2l	IMP2 inner mitochondrial membrane peptidase-like (S. cerevisiae)	protein coding gene	ENSMUSG00000056899
+NM_198111	RefSeq	MGI:3050566	Akap6	A kinase anchor protein 6	protein coding gene	ENSMUSG00000061603
+NM_033037	RefSeq	MGI:105925	Cdo1	cysteine dioxygenase 1, cytosolic	protein coding gene	ENSMUSG00000033022
+NM_133962	RefSeq	MGI:2142567	Arhgef18	Rho/Rac guanine nucleotide exchange factor 18	protein coding gene	ENSMUSG00000004568
+NM_145458	RefSeq	MGI:1289230	Pxk	PX domain containing serine/threonine kinase	protein coding gene	ENSMUSG00000033885
+NM_001164805	RefSeq	MGI:2685683	Thsd7a	thrombospondin, type I, domain containing 7A	protein coding gene	ENSMUSG00000032625
+NM_020295	RefSeq	MGI:1861746	Lmbr1	limb region 1	protein coding gene	ENSMUSG00000010721
+NM_020295	RefSeq	MGI:1861746	Lmbr1	limb region 1	protein coding gene	ENSMUSG00000105741
