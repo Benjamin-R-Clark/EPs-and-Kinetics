@@ -176,6 +176,8 @@ bs_fig <- ggplot(kinetics_se, aes(x=factor(SE_linked), bs, fill = SE_linked)) +
 
 ggarrange(bf_fig, bs_fig, common.legend = T)
 ```
+![unnamed-chunk-6-1](https://github.com/Benjamin-R-Clark/EPs-and-Kinetics/assets/172543795/933a29a8-8dfc-47cc-9da0-62ffa7a70cbb)
+
 
 ![](mef_se_files/figure-gfm/unnamed-chunk-6-1.png)<!-- -->
 
@@ -281,6 +283,8 @@ bs_fig <- ggplot(df_factor, aes(x=reorder(factor(relation), k_on, FUN = median),
 
 ggarrange(bf_fig, bs_fig, common.legend = F)
 ```
+![unnamed-chunk-11-1](https://github.com/Benjamin-R-Clark/EPs-and-Kinetics/assets/172543795/07184ee8-ae6f-41f2-a7f9-a00641687dfd)
+
 
 ![](mef_se_files/figure-gfm/unnamed-chunk-11-1.png)<!-- -->
 
@@ -301,5 +305,6 @@ x <- list("overlap" = overlap, "linked" = link, "proximal" = proximal)
 
 ggvenn::ggvenn(x, fill_color = rep("white", 4), stroke_size = 1, text_size = 3)
 ```
+![unnamed-chunk-12-1](https://github.com/Benjamin-R-Clark/EPs-and-Kinetics/assets/172543795/e44ff4f4-975e-4662-a11f-6799df239591)
 
 ![](mef_se_files/figure-gfm/unnamed-chunk-12-1.png)<!-- -->
