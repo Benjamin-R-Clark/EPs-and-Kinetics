@@ -177,7 +177,7 @@ bs_fig <- ggplot(kinetics_se, aes(x=factor(SE_linked), bs, fill = SE_linked)) +
 ggarrange(bf_fig, bs_fig, common.legend = T)
 ```
 
-![](/home/ben/bio/mef_se/mef_se_files/figure-gfm/unnamed-chunk-6-1.png)<!-- -->
+![](/mef_se_files/figure-gfm/unnamed-chunk-6-1.png)<!-- -->
 
 ``` r
 # #bf <- ggplot(kinetics_se, aes(x=SE_linked, y=k_on)  ) + geom_boxplot() +
@@ -282,7 +282,7 @@ bs_fig <- ggplot(df_factor, aes(x=reorder(factor(relation), k_on, FUN = median),
 ggarrange(bf_fig, bs_fig, common.legend = F)
 ```
 
-![](/home/ben/bio/mef_se/mef_se_files/figure-gfm/unnamed-chunk-11-1.png)<!-- -->
+![](mef_se_files/figure-gfm/unnamed-chunk-11-1.png)<!-- -->
 
 Some interesting observations: an overlapping SE is just as good as a
 linked one. Genomic proximity only makes burst sizes bigger while burst
@@ -302,4 +302,4 @@ x <- list("overlap" = overlap, "linked" = link, "proximal" = proximal)
 ggvenn::ggvenn(x, fill_color = rep("white", 4), stroke_size = 1, text_size = 3)
 ```
 
-![](/home/ben/bio/mef_se/mef_se_files/figure-gfm/unnamed-chunk-12-1.png)<!-- -->
+![](mef_se_files/figure-gfm/unnamed-chunk-12-1.png)<!-- -->
