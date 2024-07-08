@@ -177,7 +177,7 @@ bs_fig <- ggplot(kinetics_se, aes(x=factor(SE_linked), bs, fill = SE_linked)) +
 ggarrange(bf_fig, bs_fig, common.legend = T)
 ```
 
-![](/mef_se_files/figure-gfm/unnamed-chunk-6-1.png)<!-- -->
+![](mef_se_files/figure-gfm/unnamed-chunk-6-1.png)<!-- -->
 
 ``` r
 # #bf <- ggplot(kinetics_se, aes(x=SE_linked, y=k_on)  ) + geom_boxplot() +
