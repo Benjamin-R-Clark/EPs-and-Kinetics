@@ -9,5 +9,10 @@ This space is currently under construction, I'm slowly adding md presentations a
 
   [MEF Super-Enhancer Analysis](https://github.com/Benjamin-R-Clark/EPs-and-Kinetics/blob/main/HiChIP_SEs/MEF/mef_se.md)
 
+#### [txburst_pipe](https://github.com/Clarkvale/txburst_pipe)
+  Nextflow pipeline for calling transcriptional kinetics from allele-specific UMI counts. Relies on scripts from  [sandberg lab](https://github.com/sandberg-lab/txburst).
+
+#### [tx_noise](https://github.com/Clarkvale/txnoise/tree/74118078493861024634fedda180b60544bd8bd4)
+  Workspace for calling transcriptional noise values from allele-specific UMI counts.
 
 🚧🚧🚧🚧🚧 Under construction 🚧🚧🚧🚧🚧
