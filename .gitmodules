@@ -1,3 +1,6 @@
 [submodule "tx_noise"]
 	path = tx_noise
 	url = https://github.com/Clarkvale/txnoise
+[submodule "txburst_pipe"]
+	path = txburst_pipe
+	url = https://github.com/Clarkvale/txburst_pipe
