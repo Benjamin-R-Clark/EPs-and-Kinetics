@@ -70,7 +70,7 @@ bash file:
 #SBATCH --mem=200G
 #SBATCH --time=48:00:00
 #SBATCH --cpus-per-task=30
-#SBATCH --mail-user=benjamin_r.clark@live.com
+#SBATCH --mail-user=sample_email@outlook.com
 #SBATCH --mail-type=END,FAIL
 
 module load StdEnv/2020
@@ -200,7 +200,7 @@ Don't forget to merge and index the bam files.
 #!/bin/bash
 #SBATCH --job-name=merge_zUMIs      # Job name
 #SBATCH --mail-type=END,FAIL         # Mail events (NONE, BEGIN, END, FAIL, ALL)
-#SBATCH --mail-user=benjamin_r.clark@live.com    # Where to send mail
+#SBATCH --mail-user=sample_email@outlook.com    # Where to send mail
 #SBATCH --nodes=1                    # Run all processes on a single node
 #SBATCH --ntasks=1                   # Run a single task
 #SBATCH --cpus-per-task=10           # Number of CPU cores per task
@@ -222,7 +222,7 @@ samtools merge merged.filtered.Aligned.GeneTagged.UBcorrected.sorted.bam \
 #!/bin/bash
 #SBATCH --job-name=allele_assign      # Job name
 #SBATCH --mail-type=END,FAIL          # Mail events (NONE, BEGIN, END, FAIL, ALL)
-#SBATCH --mail-user=benjamin_r.clark@live.com           # Where to send mail
+#SBATCH --mail-user=sample_email@outlook.com           # Where to send mail
 #SBATCH --ntasks=1                    # Run on a single CPU
 #SBATCH --mem=24gb                    # Job memory request
 #SBATCH --time=03:00:00               # Time limit hrs:min:sec
@@ -243,7 +243,7 @@ Requires to use the .run.yaml file for the extra line denoting read type.
 ### Kinetics Estimation
 
 ```bash
-#SBATCH --mail-user=benjamin_r.clark@live.com           # Where to send mail
+#SBATCH --mail-user=sample_email@outlook.com           # Where to send mail
 #SBATCH --ntasks=1                    # Run on a single CPU
 #SBATCH --mem=24gb                     # Job memory request
 #SBATCH --time=07:00:00               # Time limit hrs:min:sec
