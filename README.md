@@ -17,7 +17,9 @@ This space is currently under construction, I'm slowly adding md presentations a
 
 #### [SS3_scRNAseq_Workflow.md](https://github.com/Benjamin-R-Clark/EPs-and-Kinetics/SS3_scRNAseq_Workflow.md)
   Benchling entry on scRNAseq workflow using zUMIs on a hybrid mouse strain. Mostly scripts and notes on getting things to run on an HPC, here using slurm on compute canada servers.
-  
+
+
+  ### Project Poster
 
   ![BC_2024_IRCM-1](https://github.com/user-attachments/assets/9fea9f99-5c22-40ed-9239-c7647a2d4598)
 
