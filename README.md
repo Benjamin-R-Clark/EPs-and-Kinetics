@@ -36,7 +36,8 @@ To begin we need to estimate transcriptional kinetics from scRNAseq data from ME
   Script for mapping enhancers to promoters and adding the kinetics for each gene. Bootstrapped linear models are performed to see if the number of enhancers changes kinetic outputs. The short answer is yes, but in interesting ways (see poster).
 
 [ep_networks.Rmd](https://github.com/Benjamin-R-Clark/EPs-and-Kinetics/blob/main/hichip/ep_networks.rmd)
-  Markdown script for generating network graphs of EPs from H3K27ac HI-ChIP data. Initial hypothesis was to see if network interactions between enhancers and promoters using common graph statistics (such as centrality) influence kinetics of the members   within. It turns out these networks can be quite complex and difficult draw significant conclusions out of. The script does make some really pretty graph networks though. 
+  Markdown script for generating network graphs of EPs from H3K27ac HI-ChIP data. Initial hypothesis was to see if network interactions between enhancers and promoters using common graph statistics (such as centrality) influence kinetics of the members   within. It turns out these networks can be quite complex and difficult draw significant conclusions out of. The script does make some really pretty graph networks though.
+  
 [enh_knn.R](https://github.com/Benjamin-R-Clark/eps-and-kinetics-thesis/blob/main/enh_knn.R)
   My attempt at implementing a random forest model on enhancer sequences to predict transcription burst frequency. Ideally the model would be able to find combinatorial TF motifs to predict burst frequency Unfortunately the model failed, most likely to the size of the training set (~150) and the size of enhancer sequeences (~100bp). A better model would isolate specific regions using ATACseq. 
 
