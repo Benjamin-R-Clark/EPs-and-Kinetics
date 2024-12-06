@@ -24,7 +24,6 @@ To begin we need to estimate transcriptional kinetics from scRNAseq data from ME
 
 
 
-
 ### Misc
 [HiChIP_SEs](https://github.com/Benjamin-R-Clark/EPs-and-Kinetics/tree/main/HiChIP_SEs)
   Work repos for identfying super enhancers (SEs) from chipseq files in MEFs and mESCs. I use these annotations with H3K27ac HICHIP chromatin loops to map promoters with SEs. I then incorporate transcriptional kinetics data to determine what effect these linkages have. I have sample bash scripts and short nextflow pipelines to show how I did secondary analysis (alignment, peak calling and SE calling). 
@@ -43,7 +42,13 @@ To begin we need to estimate transcriptional kinetics from scRNAseq data from ME
 
   ### Project Poster
 
-  ![BC_2024_IRCM-1](https://github.com/user-attachments/assets/9fea9f99-5c22-40ed-9239-c7647a2d4598)
 
+
+![BC_2024_IRCM-1](https://github.com/user-attachments/assets/cc41b980-bad9-45cd-9263-7c6cbebfcd9d)
+
+
+### SmartSeq3 Transcriptional Kinetics Pipeline
+![ss3_pipe](https://github.com/user-attachments/assets/0c9f797e-f29e-45bf-b4b6-56b8d8b2b41f)
   
   🚧🚧🚧🚧🚧 Under construction 🚧🚧🚧🚧🚧
+
