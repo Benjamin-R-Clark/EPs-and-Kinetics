@@ -266,18 +266,6 @@ df_ex <- df_ex[which(rownames(df_ex) %in% rownames(df_bl6)),]
 
 reordered_CAST <- df_CAST[,match(colnames(df_ex), colnames(df_CAST))]
 
-
-#fix_allelic_umi <- function(ex, allelic_umi){
-#  if((ex > 0  | is.na(ex)) & (allelic_umi == 0 | is.na(allelic_umi))){
-#    allelic_umi <- NA
-#  }
-#  else if(ex == 0){
-#    allelic_umi <- 0
-#  }
-#  return(allelic_umi)
-#}
-
-
 fix_allelic_umi <- function(ex, allelic_umi_1, allelic_umi_2 ){
   allelic_umi <- allelic_umi_1
   #catch (0,NA) condition
